@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: utrains3
+#  namespace: geolocation
+  labels:
+   app: utrains3
+spec:
+  affinity:
+    nodeAffinity:
+      preferredDuringSchedulingIgnoredDuringExecution:
+      - weight: 1
+        preference:
+          matchExpressions:
+          - key: sku
+            operator: In
+            values:
+            - medium
+  containers:
+    - name: utrains-app
+      image: httpd
+        
+  
+  affinity:
+   nodeAffinity:
+     preferredDuringSchedulingIgnoredDuringExecution:
+     - preference:
+         matchExpressions:
+         - key: example.com/myLabel
+           operator: In
+           values:
+           - a
+       weight: 40
+     - preference:
+         matchExpressions:
+         - key: example.com/myLabel
+           operator: In
+           values:
+           - b
+       weight: 35

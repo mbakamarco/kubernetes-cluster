@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: web
+#  namespace: dev
+  labels:
+   app: web
+spec:
+  containers:
+    - name: utrains-app
+      image: httpd
